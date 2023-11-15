@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Labao_FA6</title>
+  <style>
+    a {
+      color: yellow;
+      text-decoration: none;
+      display: inline-block;
+      padding: 5px;
+      margin: 5px;
+      border: 1px solid #ccc;
+    }
+
+    a:link {
+      background-color: rgb(166, 173, 218);
+    }
+
+    a:visited {
+      background-color: rgb(138, 161, 202);
+    }
+
+    a:hover {
+      background-color: rgb(228, 241, 243);
+      color: rgb(149, 194, 202);
+    }
+
+    a:active {
+      background-color: #1f1515;
+      color: white;
+    }
+
+    #div1 {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid rgb(144, 199, 209);
+	  background-color: orchid;
+	  height: 150px;
+	  width: 150px;
+    }
+
+    #div2 {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid rgb(144, 199, 209);
+      background-color: orchid;
+      height: 150px;
+	  width: 150px;
+    }
+
+    #div1:target {
+	  background-color: #86ACD1;
+      color: #FFFFFF;
+    }
+
+    #div2:target {
+   	  background-color: #86ACD1;
+      color: #FFFFFF;
+      border: 10px dotted green;
+    }
+	
+	body {
+      background-image: url('img1.avif');
+      background-size: cover; 
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#div1">Div 1</a>
+  <div id="div1">Div 1</div>
+
+  <br>
+
+  <a href="#div2">Div 2</a>
+  <div id="div2">Div 2</div>
+
+</body>
+</html>
