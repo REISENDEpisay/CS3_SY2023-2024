@@ -1,0 +1,174 @@
+<DOCTYPE! html>
+
+<head>
+
+    <style>
+
+        body{
+
+            text-align: center;
+            padding: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-image: url('scara2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        form{
+
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(194, 205, 212, 0.1);
+            background-color: aliceblue;
+
+        }
+
+        legend{
+
+            margin-bottom: 15px;
+            font-size: larger;
+
+        }
+
+        input, textarea, select {
+            width: 99%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #4cafa7;
+            color: #fff;
+            padding: 10px 20px ;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #458ea0;
+        }
+
+        .output {
+            max-width: 600px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        footer{
+
+            text-align: center;
+            padding: 20px;
+
+        }
+
+    </style>
+
+</head>
+
+<html>
+    <body>
+        <center>
+
+        <form id="signupForm">
+            <fieldset>
+                <legend>User Sign-up</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required><br>
+                
+                <label for="username">Preferred Username:</label>
+                <input type="text" id="username" required><br>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="preferNotToSay">Prefer not to mention</option>
+                </select><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" required><br>
+                
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" required><br>
+                
+                <label for="address">Address:</label>
+                <textarea id="address" rows="3" required></textarea><br>
+                
+                <label for="interest">Interests:</label>
+                <textarea id="interest" rows="3" required></textarea>
+            </fieldset>
+
+            <br>
+            
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+
+    
+        <div class="output" id="userInfo"></div>
+
+        <footer>
+
+            <h5>By:Anjalee DG. Labao - Grade 9-Potassium</h5>
+    
+        </footer>
+    
+        <script>
+            document.getElementById('signupForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                displayUserInfo();
+            });
+    
+            document.getElementById('signupForm').addEventListener('reset', function() {
+                document.getElementById('userInfo').innerHTML = '';
+            });
+    
+            function displayUserInfo() {
+                const name = document.getElementById('name').value;
+                const username = document.getElementById('username').value;
+                const gender = document.getElementById('gender').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+                const interest = document.getElementById('interest').value;
+    
+                const userInfo = `
+                    <h2>User Information:</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Preferred Username:</strong> ${username}</p>
+                    <p><strong>Gender:</strong> ${gender}</p>
+                    <p><strong>Email Address:</strong> ${email}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                    <p><strong>Interests:</strong> ${interest}</p>
+                `;
+    
+                document.getElementById('userInfo').innerHTML = userInfo;
+            }
+    
+            const inputElements = document.querySelectorAll('input, textarea, select');
+            inputElements.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.style.borderColor = 'green';
+                });
+                input.addEventListener('blur', () => {
+                    if (!input.value.trim()) {
+                        input.style.borderColor = 'red';
+                    }
+                });
+            });
+        </script>
+
+
+        </center>
+    </body>
+</html>
